@@ -21,6 +21,7 @@ public class NewRecordTask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_record_task);
+        txvResult = (TextView) findViewById(R.id.txvResult);
     }
 
     public void getSpeechInput (View view){
@@ -38,19 +39,18 @@ public class NewRecordTask extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Toast.makeText(this, resultCode, Toast.LENGTH_SHORT).show();
 
-//        switch (requestCode) {
-//            case 10:
-//                if(resultCode == RESULT_OK && data != null){
-//                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-//                    txvResult.setText(result.get(0));
-//                    Toast.makeText(this, txvResult.getText(), Toast.LENGTH_SHORT).show();
-////                    Intent recordIntent = new Intent(NewRecordTask.this, AddTask.class);
-////                    recordIntent.putExtra("textRecorded",result.get(0).toString());
-////                    startActivity(recordIntent);
-//                }
-//                break;
-//        }
+        switch (requestCode) {
+            case 10:
+                if(resultCode == RESULT_OK && data != null){
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    txvResult.setText(result.get(0));
+                    Toast.makeText(this, txvResult.getText(), Toast.LENGTH_SHORT).show();
+                    Intent recordIntent = new Intent(NewRecordTask.this, AddTask.class);
+                    recordIntent.putExtra("textRecorded",result.get(0).toString());
+                    startActivity(recordIntent);
+                }
+                break;
+        }
     }
 }

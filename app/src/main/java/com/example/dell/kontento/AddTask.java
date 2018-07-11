@@ -1,9 +1,11 @@
 package com.example.dell.kontento;
 
+import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +26,42 @@ public class AddTask extends AppCompatActivity {
     EditText mtask;
     Spinner drop;
     String val;
-    TextView test = (TextView)findViewById(R.id.headerText);
+    TextView test;
+
+    private SensorManager mSensorManager;
+
+    private float acelVal; // CURRENT ACCELERATION VALUE AND GRAVITY
+    private float acelLast; // LAST ACCELERATION VALUE AND GRAVITY
+    private float shake; // ACCELERATION VALUE differ FROM GRAVITY
+
+    private final SensorEventListener sensorListener = new SensorEventListener() {
+        @Override
+        public void onSensorChanged(SensorEvent sensorEvent) {
+
+            float x = sensorEvent.values[0];
+            float y = sensorEvent.values[1];
+            float z = sensorEvent.values[2];
+
+            acelLast = acelVal;
+            acelVal = (float) Math.sqrt((double) (x*x + y*y + z*z));
+            float delta = acelVal - acelLast;
+            shake = shake * 0.9f + delta;
+
+            if(shake > 12){
+                addNewRecordTaskShake(this);
+            }
+        }
+
+        @Override
+        public void onAccuracyChanged(Sensor sensor, int i) {
+
+        }
+    };
+
+    public void addNewRecordTaskShake (SensorEventListener view) {
+        Intent recordIntent = new Intent(this, NewRecordTask.class);
+        startActivity(recordIntent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +71,18 @@ public class AddTask extends AppCompatActivity {
         mydb = new SQLiteHelper(this);
 
         //bunding
+        test = (TextView)findViewById(R.id.headerText);
         drop = findViewById(R.id.type);
         mtask = findViewById(R.id.task);
         btnAdd = findViewById(R.id.btnAdd);
+
+        //Bundle
+        Intent intent = getIntent();
+        if(intent.getExtras() != null){
+            Bundle bundle = getIntent().getExtras();
+            String message = bundle.getString("textRecorded");
+            mtask.setText(message);
+        }
 
         // change this
         String type [] =  getResources().getStringArray(R.array.type);
@@ -82,6 +128,14 @@ public class AddTask extends AppCompatActivity {
             }
             }
         });
+
+        // Shake Detector Initialization
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mSensorManager.registerListener(sensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+
+        acelVal = SensorManager.GRAVITY_EARTH;
+        acelLast = SensorManager.GRAVITY_EARTH;
+        shake = 0.00f;
     }
 
     public void InsertTask(String tasking) {

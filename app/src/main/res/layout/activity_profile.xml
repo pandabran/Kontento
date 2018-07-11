@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Profile"
+    android:background="@drawable/bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="PROFILE"
+            android:textStyle="bold"
+            android:fontFamily="@font/quicksand_medium"
+            android:textSize="20dp"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:background="@color/colorPrimaryDark"
+            android:layout_alignParentTop="true"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/june"
+            android:layout_marginTop="40dp"/>
+
+        <TextView
+            android:id="@+id/tname"
+            android:layout_below="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="NAME:"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="15dp"
+            />
+        <TextView
+            android:padding="3.5dp"
+            android:id="@+id/pname"
+            android:layout_below="@+id/tname"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:text="June Jan Genelsa"
+            android:background="@drawable/fwhite2"
+            android:layout_centerHorizontal="true"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            />
+
+        <TextView
+            android:id="@+id/temail"
+            android:layout_below="@+id/pname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="EMAIL:"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="15dp"
+
+            />
+        <TextView
+            android:padding="3.5dp"
+            android:id="@+id/pemail"
+            android:layout_below="@+id/temail"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:text="june.jan.genelsa@gmail.com"
+            android:layout_centerHorizontal="true"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:background="@drawable/fwhite2"
+            />
+
+
+
+
+        <TableLayout
+            android:background="@drawable/fwhite2"
+            android:layout_below="@id/temail"
+            android:padding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            >
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/tage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="AGE: "
+                    android:layout_centerHorizontal="true"
+                    android:textSize="15dp"
+
+                    />
+                <TextView
+                    android:id="@+id/page"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" 16"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/tsex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="GENDER: "
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="15dp"
+                    />
+                <TextView
+                    android:id="@+id/psex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" Male"
+                    android:textSize="15dp" />
+            </TableRow>
+
+        </TableLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

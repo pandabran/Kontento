@@ -55,14 +55,4 @@
         android:src="@drawable/ic_calendar"
         android:onClick="viewCalendar"
         app:elevation="4dp" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/PrivacyPolicy"
-        android:layout_gravity="top|start"
-        android:layout_marginBottom="16dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_privacy"
-        android:onClick="viewPrivacyPolicy"
-        app:elevation="4dp" />
 </FrameLayout>

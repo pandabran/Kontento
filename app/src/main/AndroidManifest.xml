@@ -20,32 +20,24 @@
             android:windowSoftInputMode="stateVisible|adjustPan|stateHidden" />
         <activity
             android:name=".RegistrationActivity"
-            android:noHistory="true"
             android:windowSoftInputMode="stateVisible|adjustPan|stateHidden" />
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="stateVisible|adjustPan|stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".AddTask" />
             <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts" />
         <activity android:name=".Profile" />
-        <activity android:name=".LandingPage"></activity>
-        <activity
-            android:name=".activities.MemoriesActivity"
-            android:label="Memories">
+        <activity android:name=".LandingPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.MemoriesActivity"/>
         <activity android:name=".activities.NewMemoryActivity" />
         <activity android:name=".activities.NewRecordTask" />
         <activity android:name=".activities.Calendar" />

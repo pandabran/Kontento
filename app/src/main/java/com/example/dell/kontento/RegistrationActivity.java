@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dell.kontento.activities.PrivacyPolicy;
 import com.example.dell.kontento.helper.DatabaseHelper;
 
 import java.util.regex.Matcher;
@@ -53,7 +54,7 @@ public class RegistrationActivity extends AppCompatActivity {
         final TextView confirm_error = (TextView)findViewById(R.id.confirm_error);
         Button signupButton = (Button)findViewById(R.id.signupButton);
         TextView loginButton = (TextView)findViewById(R.id.loginButton);
-
+        TextView privacy = (TextView)findViewById(R.id.privacy_policy);
 
         // -- Redirect to Login
 
@@ -63,6 +64,14 @@ public class RegistrationActivity extends AppCompatActivity {
                 Intent LoginActivity = new Intent(RegistrationActivity.this, com.example.dell.kontento.LoginActivity.class);
                 startActivity(LoginActivity);
                 finish();
+            }
+        });
+
+        privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent privacyPolicy = new Intent(RegistrationActivity.this, PrivacyPolicy.class);
+                startActivity(privacyPolicy);
             }
         });
 

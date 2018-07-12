@@ -224,6 +224,17 @@
                 android:textColor="@color/white"
                 android:textSize="14dp"
                 />
+
+            <TextView
+                android:id="@+id/privacy_policy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Privacy Policy"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_marginTop="15dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"/>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

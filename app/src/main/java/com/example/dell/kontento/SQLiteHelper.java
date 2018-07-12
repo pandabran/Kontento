@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "yang.db";
+    public static final String DATABASE_NAME = "kotento.db";
     public static final String TABLE_NAME = "Data";
     public static final String COL1 = "ID";
     public static final String COL2 = "Status";

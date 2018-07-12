@@ -95,11 +95,4 @@ public class MemoriesActivity extends AppCompatActivity {
         Intent calendarIntent = new Intent(this, Calendar.class);
         startActivity(calendarIntent);
     }
-
-    public void viewPrivacyPolicy (View view) {
-        Intent PrivacyIntent = new Intent(this, PrivacyPolicy.class);
-        startActivity(PrivacyIntent);
-    }
-
-
 }

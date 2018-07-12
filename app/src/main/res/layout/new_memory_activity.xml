@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/addbg">
     
     <ImageView
         android:id="@+id/new_memory_selected_image"
@@ -15,19 +16,28 @@
         android:id="@+id/new_memory_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/new_memory_title_hint"/>
+        android:hint="@string/new_memory_title_hint"
+        android:backgroundTint="@color/addcolor"
+        android:textColor="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"/>
 
     <Button
         android:onClick="openGallery"
         android:text="@string/new_memory_btn_gallery"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:textColor="@android:color/background_light"
+        android:textSize="16sp"/>
 
     <Button
         android:onClick="openCamera"
         android:text="@string/new_memory_btn_camera"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:textColor="@android:color/background_light"
+        android:textSize="16sp"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -40,14 +50,20 @@
             android:layout_weight="1"
             android:onClick="cancel"
             android:text="@string/new_memory_btn_cancel"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp"/>
 
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
             android:onClick="save"
             android:text="@string/new_memory_btn_save"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:textColor="@android:color/background_light"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
